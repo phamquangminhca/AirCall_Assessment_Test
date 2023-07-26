@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { BsArchive } from "react-icons/bs";
+import { RiInboxUnarchiveLine } from "react-icons/ri";
 import Activity from "./Activity.jsx";
+import { Link } from "react-router-dom";
 
-function ActivityFeed({
+function ArchivedFeed({
   activitiesFromApp,
-  setActivitiesFromApp,
   loadingFromApp,
+  setActivitiesFromApp,
 }) {
   function convertTimestampToTime(timestamp) {
     const date = new Date(timestamp);
@@ -23,11 +24,11 @@ function ActivityFeed({
     return date.toLocaleString("en-US", options);
   }
 
-  function archiveOneActivity(id) {
+  function unarchiveOneActivity(id) {
     setActivitiesFromApp((activitiesFromApp) => {
       return activitiesFromApp.map((activity) => {
         if (activity.id === id) {
-          return Object.assign({}, activity, { is_archived: true });
+          return Object.assign({}, activity, { is_archived: false });
         }
         return activity;
       });
@@ -35,11 +36,12 @@ function ActivityFeed({
     console.log(activitiesFromApp);
   }
 
-  const archiveAllActivities = () => {
+  // Unarchive all activities
+  const unarchiveAllActivities = () => {
     const updatedActivities = activitiesFromApp.map((activity) => {
       const updatedActivity = {
         id: activity.id,
-        is_archived: true,
+        is_archived: false,
       };
       if (activity.hasOwnProperty("direction")) {
         updatedActivity.direction = activity.direction;
@@ -68,20 +70,20 @@ function ActivityFeed({
   };
 
   const filteredActivities = activitiesFromApp.filter(
-    (activity) => !activity.is_archived
+    (activity) => activity.is_archived
   );
 
   return (
     <div style={pageContainerStyles}>
       <div style={buttonContainerStyles}>
-        <button style={buttonStyles} onClick={archiveAllActivities}>
+        <button style={buttonStyles} onClick={unarchiveAllActivities}>
           <div style={iconContainerStyle}>
-            <BsArchive />
+            <RiInboxUnarchiveLine />
           </div>
-          Archive all calls
+          Unarchive all calls
         </button>
         {loadingFromApp ? (
-          <p>Loading...</p>
+          <p>Loading...</p> 
         ) : (
           filteredActivities.map((activity) => (
             <Activity
@@ -91,9 +93,9 @@ function ActivityFeed({
               from={activity.from}
               to={activity.to}
               via={activity.via}
-              createdDate={formatDate(activity.created_at)}
               id={activity.id}
-              archiveOneActivity={archiveOneActivity}
+              unarchiveOneActivity={unarchiveOneActivity}
+              createdDate={formatDate(activity.created_at)}
               calledAt={convertTimestampToTime(activity.created_at)}
             />
           ))
@@ -108,28 +110,28 @@ const iconContainerStyle = {
 };
 
 const pageContainerStyles = {
-  maxHeight: "548px",
-  overflowY: "auto",
+  maxHeight: "548px", 
+  overflowY: "auto", 
 };
 
 const buttonContainerStyles = {
   display: "flex",
   justifyContent: "center",
-  flexDirection: "column",
-  alignItems: "center",
+  flexDirection: "column", 
+  alignItems: "center", 
 };
 
 const buttonStyles = {
-  margin: "10px",
-  padding: "10px 20px",
-  backgroundColor: "#fffcfc",
-  border: "1px solid #dddddd",
+  margin: "10px", 
+  padding: "10px 20px", 
+  backgroundColor: "#fffcfc", 
+  border: "1px solid #dddddd", 
   borderRadius: "10px",
-  fontSize: "16px",
-  display: "flex",
-  cursor: "pointer",
-  width: "90%",
-  maxWidth: "400px",
+  display: "flex", 
+  fontSize: "16px", 
+  cursor: "pointer", 
+  width: "90%", 
+  maxWidth: "400px", 
 };
 
-export default ActivityFeed;
+export default ArchivedFeed;
