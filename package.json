@@ -2,10 +2,6 @@
   "homepage": "http://phamquangminhca.github.io/AirCall_Assessment_Test",
   "name": "frontend-hiring-challenge",
   "version": "1.0.0",
-  "engines": {
-    "node": "16.13.1",
-    "npm": "6.14.13"
-  },
   "description": "Leap test",
   "main": "index.js",
   "repository": "",
