@@ -18,10 +18,7 @@ const App = () => {
       axios
         .get(`${API_BASE_URL}/activities`)
         .then((response) => {
-          const filteredActivities = response.data.filter(
-            (activity) => !activity.is_archived
-          );
-          setActivities(filteredActivities);
+          setActivities(response.data);
           setLoading(false);
         })
         .catch((error) => {
