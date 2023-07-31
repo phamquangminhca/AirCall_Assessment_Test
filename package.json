@@ -13,7 +13,7 @@
   "license": "",
   "private": false,
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --mode development --open -p $PORT",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "build": "webpack --mode production"
