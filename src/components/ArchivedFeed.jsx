@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { RiInboxUnarchiveLine } from "react-icons/ri";
 import Activity from "./Activity.jsx";
-import { Link } from "react-router-dom";
 
 function ArchivedFeed({
   activitiesFromApp,
@@ -33,7 +32,6 @@ function ArchivedFeed({
         return activity;
       });
     });
-    console.log(activitiesFromApp);
   }
 
   // Unarchive all activities

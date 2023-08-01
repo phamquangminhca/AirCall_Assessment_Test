@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BsArchive } from "react-icons/bs";
 import Activity from "./Activity.jsx";
 
@@ -32,7 +32,6 @@ function ActivityFeed({
         return activity;
       });
     });
-    console.log(activitiesFromApp);
   }
 
   const archiveAllActivities = () => {
