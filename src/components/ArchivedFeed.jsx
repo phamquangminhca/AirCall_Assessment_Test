@@ -1,6 +1,8 @@
 import React from "react";
 import { RiInboxUnarchiveLine } from "react-icons/ri";
 import Activity from "./Activity.jsx";
+import axios from "axios";
+import { API_BASE_URL } from "../utils/apiURL.js";
 
 function ArchivedFeed({
   activitiesFromApp,
@@ -24,17 +26,25 @@ function ArchivedFeed({
   }
 
   function unarchiveOneActivity(id) {
+    axios
+      .patch(`${API_BASE_URL}/activities/${id}`, { is_archived: false })
+      .then(() => {
+        console.log("Activity successfully unarchived");
+      })
+      .catch((error) => {
+        console.error("Error updating activity:", error);
+      });
+
     setActivitiesFromApp((activitiesFromApp) => {
       return activitiesFromApp.map((activity) => {
         if (activity.id === id) {
-          return Object.assign({}, activity, { is_archived: false });
+          activity.is_archived = false;
         }
         return activity;
       });
     });
   }
 
-  // Unarchive all activities
   const unarchiveAllActivities = () => {
     const updatedActivities = activitiesFromApp.map((activity) => {
       const updatedActivity = {
@@ -81,7 +91,7 @@ function ArchivedFeed({
           Unarchive all calls
         </button>
         {loadingFromApp ? (
-          <p>Loading...</p> 
+          <p>Loading...</p>
         ) : (
           filteredActivities.map((activity) => (
             <Activity
@@ -108,28 +118,28 @@ const iconContainerStyle = {
 };
 
 const pageContainerStyles = {
-  maxHeight: "548px", 
-  overflowY: "auto", 
+  maxHeight: "548px",
+  overflowY: "auto",
 };
 
 const buttonContainerStyles = {
   display: "flex",
   justifyContent: "center",
-  flexDirection: "column", 
-  alignItems: "center", 
+  flexDirection: "column",
+  alignItems: "center",
 };
 
 const buttonStyles = {
-  margin: "10px", 
-  padding: "10px 20px", 
-  backgroundColor: "#fffcfc", 
-  border: "1px solid #dddddd", 
+  margin: "10px",
+  padding: "10px 20px",
+  backgroundColor: "#fffcfc",
+  border: "1px solid #dddddd",
   borderRadius: "10px",
-  display: "flex", 
-  fontSize: "16px", 
-  cursor: "pointer", 
-  width: "90%", 
-  maxWidth: "400px", 
+  display: "flex",
+  fontSize: "16px",
+  cursor: "pointer",
+  width: "90%",
+  maxWidth: "400px",
 };
 
 export default ArchivedFeed;

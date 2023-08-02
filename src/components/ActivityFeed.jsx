@@ -1,6 +1,8 @@
 import React from "react";
 import { BsArchive } from "react-icons/bs";
 import Activity from "./Activity.jsx";
+import axios from "axios";
+import { API_BASE_URL } from "../utils/apiURL.js";
 
 function ActivityFeed({
   activitiesFromApp,
@@ -24,10 +26,19 @@ function ActivityFeed({
   }
 
   function archiveOneActivity(id) {
+    axios
+      .patch(`${API_BASE_URL}/activities/${id}`, { is_archived: true })
+      .then(() => {
+        console.log("Activity successfully archived");
+      })
+      .catch((error) => {
+        console.error("Error updating activity:", error);
+      });
+
     setActivitiesFromApp((activitiesFromApp) => {
       return activitiesFromApp.map((activity) => {
         if (activity.id === id) {
-          return Object.assign({}, activity, { is_archived: true });
+          activity.is_archived = true;
         }
         return activity;
       });

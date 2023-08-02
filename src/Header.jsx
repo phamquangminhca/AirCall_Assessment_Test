@@ -1,13 +1,27 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { PiDotsThreeVerticalLight } from "react-icons/pi";
-import { HiOutlineAdjustments } from "react-icons/hi";
+import { RxReset } from "react-icons/rx";
+import axios from "axios";
+import { API_BASE_URL } from "./utils/apiURL";
 
 const Header = () => {
   const location = useLocation();
 
   const isActive = (path) => {
     return location.pathname === path;
+  };
+
+  const resetAllActivities = () => {
+    axios
+      .patch(`${API_BASE_URL}/reset`)
+      .then(() => {
+        console.log("Successfully reseted all activities");
+        window.location.href = "/"; 
+      })
+      .catch((error) => {
+        console.error("Error resetting activities:", error);
+      });
   };
   
   return (
@@ -110,8 +124,8 @@ const Header = () => {
           </Link>
           <PiDotsThreeVerticalLight style={dropDownIconStyle2} />
         </div>
-        <div style={iconContainerStyle}>
-          <HiOutlineAdjustments />
+        <div onClick={resetAllActivities} style={iconContainerStyle}>
+          <RxReset />
         </div>
       </div>
     </header>

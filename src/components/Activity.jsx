@@ -60,6 +60,7 @@ function Activity({
             <div>
               <button
                 onClick={isArchived ? handleUnarchiveClick : handleArchiveClick}
+                style={archiveButtonStyle}
               >
                 {isArchived ? "Unarchive" : "Archive"}
               </button>
@@ -100,6 +101,18 @@ const nameBelowPhoneNumberStyle = {
   fontSize: "12px",
   fontWeight: "500",
   color: "#999999",
+};
+
+const archiveButtonStyle = {
+  cursor: "pointer", // Add the cursor: pointer property for the button
+  margin: "5px 0",
+  backgroundColor: "#48c424",
+  color: "white",
+  border: "none",
+  borderRadius: "4px",
+  padding: "8px 12px",
+  fontSize: "14px",
+  fontWeight: "bold",
 };
 
 const pmTextStyle = {

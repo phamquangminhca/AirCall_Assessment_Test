@@ -25,24 +25,41 @@ function ActivityDetail() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div style={contentStyles}>
-          <h1>Call's Id: {activityData.id}</h1>
-          {activityData.direction && (
-            <h1>Direction: {activityData.direction}</h1>
-          )}
-          {activityData.from && <h1>Caller's number: {activityData.from}</h1>}
-          {activityData.duration && (
-            <h1>Callee's number: {activityData.duration}</h1>
-          )}
-          {activityData.call_type && (
-            <h1>Call Type: {activityData.call_type}</h1>
-          )}
-          {activityData.is_archived !== undefined && (
-            <h1>Is archived: {activityData.is_archived.toString()}</h1>
-          )}
-          {activityData.created_at && (
-            <h1>Called at: {activityData.created_at}</h1>
-          )}
+        <div style={cardStyles}>
+          <div style={contentStyles}>
+            <strong style={strongStyles}>Activity Details</strong>
+            {activityData.direction && (
+              <p>
+                <strong style={strongStyles}>Direction:</strong> <span style={textStyles}>{activityData.direction}</span>
+              </p>
+            )}
+            {activityData.from && (
+              <p>
+                <strong style={strongStyles}>Caller's number:</strong> <span style={textStyles}>{activityData.from}</span>
+              </p>
+            )}
+            {activityData.duration && (
+              <p>
+                <strong style={strongStyles}>Duration:</strong> <span style={textStyles}>{activityData.duration} seconds</span>
+              </p>
+            )}
+            {activityData.call_type && (
+              <p>
+                <strong style={strongStyles}>Call Type:</strong> <span style={textStyles}>{activityData.call_type}</span>
+              </p>
+            )}
+            {activityData.is_archived !== undefined && (
+              <p>
+                <strong style={strongStyles}>Is archived:</strong>{" "}
+                <span style={textStyles}>{activityData.is_archived ? "Archived" : "Not archived"}</span>
+              </p>
+            )}
+            {activityData.created_at && (
+              <p>
+                <strong style={strongStyles}>Called at:</strong> <span style={textStyles}>{activityData.created_at}</span>
+              </p>
+            )}
+          </div>
         </div>
       )}
     </div>
@@ -53,6 +70,29 @@ const containerStyles = {
   display: "flex",
   justifyContent: "center",
   marginTop: "20px",
+};
+
+const strongStyles = {
+  color: "#999999",
+};
+
+const textStyles = {
+  color: "#BBBBBB",
+};
+
+const cardStyles = {
+  maxWidth: "500px",
+  padding: "20px",
+  borderRadius: "8px",
+  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+  backgroundColor: "#fffcfc",
+};
+
+const titleStyles = {
+  // textAlign: "center",
+  marginBottom: "10px",
+  fontWeight: "bold",    
+  color: "#48c424",
 };
 
 const contentStyles = {

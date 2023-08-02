@@ -8,6 +8,12 @@ import { API_BASE_URL } from "./utils/apiURL.js";
 import axios from "axios";
 import Footer from "./Footer.jsx";
 import ActivityDetail from "./components/ActivityDetail.jsx";
+import Keypad from "./components/Keypad.jsx";
+import Location from "./components/Location.jsx";
+import Profile from "./components/Profile.jsx";
+import Setting from "./components/Setting.jsx";
+import NotFound from "./components/NotFound.jsx";
+
 
 const App = () => {
   const [activities, setActivities] = useState([]);
@@ -45,6 +51,10 @@ const App = () => {
             }
           />
           <Route path="/:id" element={<ActivityDetail />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/keypad" element={<Keypad />} />
+          <Route path="/setting" element={<Setting />} />
+          <Route path="/location" element={<Location />} />
           <Route
             path="/archives"
             element={
@@ -55,6 +65,7 @@ const App = () => {
               />
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
