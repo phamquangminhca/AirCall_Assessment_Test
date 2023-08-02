@@ -6,7 +6,6 @@ import { Bs0Circle } from "react-icons/bs";
 import { IoIosKeypad } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
 
-
 const Footer = () => {
   const location = useLocation();
 
@@ -31,15 +30,15 @@ const Footer = () => {
     width: "68px",
     height: "68px",
     borderRadius: "50%",
-    backgroundColor: "white", 
+    backgroundColor: "white",
     color: "white",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
     cursor: "pointer",
-    top: "-19px", 
-    zIndex: 1, 
+    top: "-19px",
+    zIndex: 1,
   };
 
   const regularIconStyles = {
@@ -48,13 +47,13 @@ const Footer = () => {
     fontSize: "1.8rem",
     cursor: "pointer",
     color: "#48c424",
-    margin: "0 22px", 
+    margin: "0 22px",
   };
 
   const iconContainerStyles = {
     display: "flex",
     alignItems: "center",
-    width: "100%", 
+    width: "100%",
     justifyContent: "space-between",
   };
 
@@ -69,59 +68,71 @@ const Footer = () => {
     position: "absolute",
     top: "50%",
     left: "50%",
-    transform: "translate(-50%, -50%)", 
+    transform: "translate(-50%, -50%)",
   };
 
   return (
     <footer style={footerStyles}>
       <div style={iconContainerStyles}>
-        <Link to='/' style={{
-          width: "32px",
-          height: "32px",
-          fontSize: "1.8rem",
-          cursor: "pointer",
-          color: isActive("/") ? "#333333" : "#999999",
-          margin: "0 22px",
-          borderBottom: isActive("/") ? "2px solid #48c424" : "none", 
-        }}>
+        <Link
+          to="/"
+          style={{
+            width: "32px",
+            height: "32px",
+            fontSize: "1.8rem",
+            cursor: "pointer",
+            color: isActive("/") ? "#333333" : "#999999",
+            margin: "0 22px",
+            borderBottom: isActive("/") ? "2px solid #48c424" : "none",
+          }}
+        >
           <BiSolidPhone />
         </Link>
-        <Link to='/profile' style={{
-          width: "32px",
-          height: "32px",
-          fontSize: "1.8rem",
-          cursor: "pointer",
-          color: isActive("/profile") ? "#333333" : "#999999",
-          margin: "0 22px", 
-          borderBottom: isActive("/profile") ? "2px solid #48c424" : "none",
-        }}>
+        <Link
+          to="/profile"
+          style={{
+            width: "32px",
+            height: "32px",
+            fontSize: "1.8rem",
+            cursor: "pointer",
+            color: isActive("/profile") ? "#333333" : "#999999",
+            margin: "0 22px",
+            borderBottom: isActive("/profile") ? "2px solid #48c424" : "none",
+          }}
+        >
           <FiUser />
         </Link>
-        <Link to='/keypad' style={circleIconStyles}>
+        <Link to="/keypad" style={circleIconStyles}>
           <div style={innerCircleStyles}>
             <IoIosKeypad style={{ fontSize: "2.2rem" }} />
           </div>
         </Link>
-        <Link to='/setting' style={{
-          width: "32px",
-          height: "32px",
-          fontSize: "1.8rem",
-          cursor: "pointer",
-          color: isActive("/setting") ? "#333333" : "#999999",
-          margin: "0 22px", 
-          borderBottom: isActive("/setting") ? "2px solid #48c424" : "none",
-        }}>
+        <Link
+          to="/setting"
+          style={{
+            width: "32px",
+            height: "32px",
+            fontSize: "1.8rem",
+            cursor: "pointer",
+            color: isActive("/setting") ? "#333333" : "#999999",
+            margin: "0 22px",
+            borderBottom: isActive("/setting") ? "2px solid #48c424" : "none",
+          }}
+        >
           <FiSettings />
         </Link>
-        <Link to='/location' style={{
-          width: "32px",
-          height: "32px",
-          fontSize: "1.8rem",
-          cursor: "pointer",
-          color: isActive("/location") ? "#333333" : "#999999",
-          margin: "0 22px", 
-          borderBottom: isActive("/location") ? "2px solid #48c424" : "none",
-        }}>
+        <Link
+          to="/location"
+          style={{
+            width: "32px",
+            height: "32px",
+            fontSize: "1.8rem",
+            cursor: "pointer",
+            color: isActive("/location") ? "#333333" : "#999999",
+            margin: "0 22px",
+            borderBottom: isActive("/location") ? "2px solid #48c424" : "none",
+          }}
+        >
           <Bs0Circle />
         </Link>
       </div>

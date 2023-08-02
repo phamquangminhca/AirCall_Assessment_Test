@@ -30,33 +30,40 @@ function ActivityDetail() {
             <strong style={strongStyles}>Activity Details</strong>
             {activityData.direction && (
               <p>
-                <strong style={strongStyles}>Direction:</strong> <span style={textStyles}>{activityData.direction}</span>
+                <strong style={strongStyles}>Direction:</strong>{" "}
+                <span style={textStyles}>{activityData.direction}</span>
               </p>
             )}
             {activityData.from && (
               <p>
-                <strong style={strongStyles}>Caller's number:</strong> <span style={textStyles}>{activityData.from}</span>
+                <strong style={strongStyles}>Caller's number:</strong>{" "}
+                <span style={textStyles}>{activityData.from}</span>
               </p>
             )}
             {activityData.duration && (
               <p>
-                <strong style={strongStyles}>Duration:</strong> <span style={textStyles}>{activityData.duration} seconds</span>
+                <strong style={strongStyles}>Duration:</strong>{" "}
+                <span style={textStyles}>{activityData.duration} seconds</span>
               </p>
             )}
             {activityData.call_type && (
               <p>
-                <strong style={strongStyles}>Call Type:</strong> <span style={textStyles}>{activityData.call_type}</span>
+                <strong style={strongStyles}>Call Type:</strong>{" "}
+                <span style={textStyles}>{activityData.call_type}</span>
               </p>
             )}
             {activityData.is_archived !== undefined && (
               <p>
                 <strong style={strongStyles}>Is archived:</strong>{" "}
-                <span style={textStyles}>{activityData.is_archived ? "Archived" : "Not archived"}</span>
+                <span style={textStyles}>
+                  {activityData.is_archived ? "Archived" : "Not archived"}
+                </span>
               </p>
             )}
             {activityData.created_at && (
               <p>
-                <strong style={strongStyles}>Called at:</strong> <span style={textStyles}>{activityData.created_at}</span>
+                <strong style={strongStyles}>Called at:</strong>{" "}
+                <span style={textStyles}>{activityData.created_at}</span>
               </p>
             )}
           </div>
@@ -91,7 +98,7 @@ const cardStyles = {
 const titleStyles = {
   // textAlign: "center",
   marginBottom: "10px",
-  fontWeight: "bold",    
+  fontWeight: "bold",
   color: "#48c424",
 };
 

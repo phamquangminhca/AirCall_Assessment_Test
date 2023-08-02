@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { SlCallIn } from "react-icons/sl";
 import { SlCallOut } from "react-icons/sl";
-
 import { PiDotsThreeVerticalLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
@@ -33,7 +32,7 @@ function Activity({
   };
 
   return (
-    <div style={containerStyle}>
+    <div style={activity}>
       <div style={dottedLineStyle}>
         <div style={dateStyle}>{createdDate}</div>
       </div>
@@ -104,7 +103,7 @@ const nameBelowPhoneNumberStyle = {
 };
 
 const archiveButtonStyle = {
-  cursor: "pointer", // Add the cursor: pointer property for the button
+  cursor: "pointer",
   margin: "5px 0",
   backgroundColor: "#48c424",
   color: "white",
@@ -177,7 +176,7 @@ const dateStyle = {
   fontWeight: "600",
 };
 
-const containerStyle = {
+const activity = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",

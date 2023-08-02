@@ -14,10 +14,9 @@ import Profile from "./components/Profile.jsx";
 import Setting from "./components/Setting.jsx";
 import NotFound from "./components/NotFound.jsx";
 
-
 const App = () => {
   const [activities, setActivities] = useState([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (activities.length === 0) {

@@ -17,13 +17,13 @@ const Header = () => {
       .patch(`${API_BASE_URL}/reset`)
       .then(() => {
         console.log("Successfully reseted all activities");
-        window.location.href = "/"; 
+        window.location.href = "/";
       })
       .catch((error) => {
         console.error("Error resetting activities:", error);
       });
   };
-  
+
   return (
     <header style={headerStyles}>
       <div style={svgContainerStyles}>
@@ -147,7 +147,7 @@ const dropDownIconStyle = {
 const dropDownIconStyle2 = {
   fontSize: "1rem",
   cursor: "pointer",
-  alignItems: "center", 
+  alignItems: "center",
   color: "#BBBBBB",
 };
 
@@ -160,21 +160,20 @@ const headerStyles = {
 };
 
 const svgContainerStyles = {
-  flex: "0 0 33%", 
-  marginRight: "16px", 
+  flex: "0 0 33%",
+  marginRight: "16px",
 };
 
 const navContainerStyles = {
   display: "flex",
-  alignItems: "center", 
+  alignItems: "center",
 };
 
 const navItemStyles = {
-  flex: "1", 
+  flex: "1",
   textDecoration: "none",
   display: "flex",
   alignItems: "center",
 };
-
 
 export default Header;
